@@ -7,7 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: amondnet/now-deployment@v2
+        id: now-deployment
         with:
           zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
           now-org-id: 'foo-software'
           now-project-id: 'create-react-app-example-performance-improvements'
+      - name: preview-url
+        run: |
+          echo ${{ steps.now-deployment.outputs.preview-url }}
