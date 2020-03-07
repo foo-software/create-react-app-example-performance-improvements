@@ -1,0 +1,13 @@
+name: Lighthouse test
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: amondnet/now-deployment@v2
+        with:
+          zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
+          now-org-id: 'foo-software'
+          now-project-id: 'create-react-app-example-performance-improvements'
