@@ -9,6 +9,7 @@ jobs:
       - uses: amondnet/now-deployment@v2
         id: now-deployment
         with:
+          github-comment: false
           zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
           now-org-id: 'foo-software'
           now-project-id: 'create-react-app-example-performance-improvements'
