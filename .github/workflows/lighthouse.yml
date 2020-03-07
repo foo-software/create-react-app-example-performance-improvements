@@ -11,8 +11,8 @@ jobs:
         with:
           github-comment: false
           zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
-          now-org-id: 'foo-software'
-          now-project-id: 'create-react-app-example-performance-improvements'
+          now-org-id: ${{ secrets.ZEIT_NOW_ORG_ID }}
+          now-project-id: ${{ secrets.ZEIT_NOW_PROJECT_ID }}
       - name: preview-url
         run: |
           echo ${{ steps.now-deployment.outputs.preview-url }}
