@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: amondnet/now-deployment@v2
-        id: now-deployment
+        id: now
         with:
           github-comment: false
           zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
@@ -15,8 +15,8 @@ jobs:
           now-project-id: ${{ secrets.ZEIT_NOW_PROJECT_ID }}
       - name: Output Preview
         run: |
-          echo ${{ steps.now-deployment.outputs.preview-url }}
+          echo "${{ steps.now.outputs.preview-url }}"
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
         with:
-          urls: ${{ steps.now-deployment.outputs.preview-url }}
+          urls: "${{ steps.now.outputs.preview-url }}"
