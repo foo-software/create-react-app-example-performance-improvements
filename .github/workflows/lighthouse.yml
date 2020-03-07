@@ -13,6 +13,9 @@ jobs:
           zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
           now-org-id: ${{ secrets.ZEIT_NOW_ORG_ID }}
           now-project-id: ${{ secrets.ZEIT_NOW_PROJECT_ID }}
+      - name: Ping
+        run: |
+          curl -Is ${{ steps.now.outputs.preview-url }} | head -1
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
         with:
