@@ -2,7 +2,7 @@ name: Lighthouse test
 on: [push]
 
 jobs:
-  deploy:
+  lighthouse-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,6 +13,10 @@ jobs:
           zeit-token: ${{ secrets.ZEIT_NOW_TOKEN }}
           now-org-id: ${{ secrets.ZEIT_NOW_ORG_ID }}
           now-project-id: ${{ secrets.ZEIT_NOW_PROJECT_ID }}
-      - name: preview-url
+      - name: Output Preview
         run: |
           echo ${{ steps.now-deployment.outputs.preview-url }}
+      - name: Run Lighthouse
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          urls: ${{ steps.now-deployment.outputs.preview-url }}
