@@ -4,6 +4,13 @@
 
 .App-logo {
   height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
@@ -18,24 +25,14 @@
 }
 
 .App-link {
-  color: #09d3ac;
+  color: #61dafb;
 }
 
-nav {
-  width: 100%;
-}
-
-ul {
-  display: flex;
-  width: 100%;
-  padding: 0;
-}
-
-li {
-  list-style: none;
-  flex-basis: 33.33333333%;
-}
-
-li a {
-  color: #09d3ac;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
