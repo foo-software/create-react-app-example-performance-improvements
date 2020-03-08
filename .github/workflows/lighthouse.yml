@@ -27,5 +27,5 @@ jobs:
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
           apiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
-          tag: GitHub Action
+          tag: ${{ github.event.commits[0].message }}
           urls: ${{ secrets.LIGHTHOUSE_CHECK_URL_TOKEN }}::${{ steps.now.outputs.preview-url }}
